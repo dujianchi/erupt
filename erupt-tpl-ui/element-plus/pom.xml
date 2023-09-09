@@ -10,9 +10,9 @@
     </description>
 
     <parent>
-        <groupId>xyz.erupt</groupId>
+        <groupId>com.github.dujianchi.erupt</groupId>
         <artifactId>erupt</artifactId>
-        <version>1.11.7</version>
+        <version>1.11.9</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 </project>

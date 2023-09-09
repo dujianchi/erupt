@@ -59,7 +59,7 @@
 
 ```xml
 <dependency>
-    <groupId>xyz.erupt</groupId>
+    <groupId>com.github.dujianchi.erupt</groupId>
     <artifactId>erupt-flow</artifactId>
     <version>${project.parent.version}</version>
 </dependency>

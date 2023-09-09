@@ -7,25 +7,25 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>xyz.erupt</groupId>
+        <groupId>com.github.dujianchi.erupt</groupId>
         <artifactId>erupt</artifactId>
-        <version>1.11.7</version>
+        <version>1.11.9</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>xyz.erupt</groupId>
+            <groupId>com.github.dujianchi.erupt</groupId>
             <artifactId>erupt-cloud-node</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>xyz.erupt</groupId>
+            <groupId>com.github.dujianchi.erupt</groupId>
             <artifactId>erupt-jpa</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>xyz.erupt</groupId>
+            <groupId>com.github.dujianchi.erupt</groupId>
             <artifactId>erupt-toolkit</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
