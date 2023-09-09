@@ -14,7 +14,6 @@ import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.Readonly;
 import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.sub_edit.DateType;
-import xyz.erupt.core.context.MetaContext;
 import xyz.erupt.core.exception.EruptWebApiRuntimeException;
 import xyz.erupt.core.service.I18NTranslateService;
 import xyz.erupt.jpa.model.BaseModel;
@@ -76,13 +75,12 @@ public class LookerPostLevel extends BaseModel {
         private I18NTranslateService i18NTranslateService;
 
         @Override
-        public String beforeFetch(List<Condition> conditions) {
+        public String beforeFetch(String eruptName, List<Condition> conditions) {
             EruptUser eruptUser = eruptUserService.getCurrentEruptUser();
             if (eruptUser.getIsAdmin()) return null;
             if (null == eruptUser.getEruptOrg() || null == eruptUser.getEruptPost()) {
                 throw new EruptWebApiRuntimeException(eruptUser.getName() + " " + i18NTranslateService.translate("未绑定的岗位无法查看数据"));
             }
-            String eruptName = MetaContext.getErupt().getName();
             return "(" + eruptName + ".createUser.id = " + eruptUserService.getCurrentUid()
                     + " or " + eruptName + ".createUser.eruptOrg.id = " + eruptUser.getEruptOrg().getId() + " and "
                     + eruptName + ".createUser.eruptPost.weight < " + eruptUser.getEruptPost().getWeight() + ")";

@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import xyz.erupt.annotation.PreDataProxy;
 import xyz.erupt.annotation.fun.DataProxy;
 import xyz.erupt.annotation.query.Condition;
-import xyz.erupt.core.context.MetaContext;
 import xyz.erupt.upms.helper.HyperModelCreatorVo;
 import xyz.erupt.upms.service.EruptUserService;
 
@@ -29,9 +28,9 @@ public class LookerSelf extends HyperModelCreatorVo implements DataProxy<Void> {
         private EruptUserService eruptUserService;
 
         @Override
-        public String beforeFetch(List<Condition> conditions) {
+        public String beforeFetch(String modelName, List<Condition> conditions) {
             if (eruptUserService.getCurrentEruptUser().getIsAdmin()) return null;
-            return MetaContext.getErupt().getName() + ".createUser.id = " + eruptUserService.getCurrentUid();
+            return modelName + ".createUser.id = " + eruptUserService.getCurrentUid();
         }
 
     }

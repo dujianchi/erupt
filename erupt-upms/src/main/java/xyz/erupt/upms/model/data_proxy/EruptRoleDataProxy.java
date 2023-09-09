@@ -27,7 +27,7 @@ public class EruptRoleDataProxy implements DataProxy<EruptRole> {
     private EruptDao eruptDao;
 
     @Override
-    public String beforeFetch(List<Condition> conditions) {
+    public String beforeFetch(String modelName, List<Condition> conditions) {
         if (eruptUserService.getCurrentEruptUser().getIsAdmin()) return null;
         return "EruptRole.createUser.id = " + eruptUserService.getCurrentUid();
     }
